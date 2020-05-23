@@ -34,7 +34,10 @@
   };
 
   const main = () => {
-    setInterval(removeAds, 1000);
+//     setInterval(removeAds, 1000);
+      window.addEventListener('load', function () {
+            removeAds();
+        })
   };
   main();
 })();
