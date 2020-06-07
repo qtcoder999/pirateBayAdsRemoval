@@ -1,43 +1,42 @@
 // ==UserScript==
-// @name         Pirate Live Ad Removal
+// @name         IMDB ad remover
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
-// @author       Paras Anand
-// @match        *://*/*
+// @author       You
+// @match        https://www.imdb.com/*
 // @grant        none
 // ==/UserScript==
 
 (function() {
-  "use strict";
+    "use strict";
 
-  // Your code here...
-
-  const remove = selector => {
-    selector &&
-      selector.map(singleSelection => {
-        const selection = document.querySelector(singleSelection);
-        if (selection) {
-          document.querySelector(singleSelection).remove();
-          console.log("Ad removed");
-        }
-      });
-  };
-
-  const removeAds = () => {
-    const selectorsForRemoval = [
-      ".vpn-banner-table",
-      "#nord-stiky",
-      "#nord-message"
+    const advertisementSelectors = [
+        "#top_ad_wrapper",
+        ".native-ad-promoted-provider",
+        "#top_rhs_wrapper"
     ];
-    remove(selectorsForRemoval);
-  };
 
-  const main = () => {
-//     setInterval(removeAds, 1000);
-      window.addEventListener('load', function () {
+    const remove = selector => {
+        selector &&
+            selector.map(singleSelection => {
+            const selection = document.querySelector(singleSelection);
+            if (selection) {
+                document.querySelector(singleSelection).remove();
+                console.log("Ad removed");
+            }
+        });
+    };
+
+    const removeAds = (advertisementSelectors) => {
+        remove(advertisementSelectors);
+    };
+
+    const main = () => {
+
+        window.addEventListener('load', function () {
             removeAds();
         })
-  };
-  main();
+    };
+    main();
 })();
