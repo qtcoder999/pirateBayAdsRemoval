@@ -28,14 +28,9 @@
         });
     };
 
-    const removeAds = (advertisementSelectors) => {
-        remove(advertisementSelectors);
-    };
-
     const main = () => {
-
         window.addEventListener('load', function () {
-            removeAds();
+            remove(advertisementSelectors);
         })
     };
     main();
