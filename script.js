@@ -23,7 +23,7 @@
             const selection = document.querySelector(singleSelection);
             if (selection) {
                 document.querySelector(singleSelection).remove();
-                console.log("Ad removed");
+                console.log("Ads removed");
             }
         });
     };
